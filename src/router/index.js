@@ -4,6 +4,8 @@ import Login from '../pages/login/login'
 import Index from '../pages/main/index'
 import Canvas from '../components/canvas'
 import Chart from '../components/charts/index'
+import Report from '../components/report/index'
+import Monitor from '../components/Monitor/index'
 
 Vue.use(Router)
 
@@ -16,9 +18,26 @@ export default new Router({
       component: Login
     },
     {
-      path:"/",
+      path:"/index",
       name:'index',
-      component:Index
+      component:Index,
+      children:[
+        {
+          path:'/report',
+          name:'report',
+          component:Report
+        },
+        {
+          path:'/chart',
+          name:'Chart',
+          component:Chart
+        },
+        {
+          path:'/monitor',
+          name:'Monitor',
+          component:Monitor
+        }
+        ]
     },
     {
       path:'/canvas',

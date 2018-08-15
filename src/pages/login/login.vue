@@ -2,7 +2,7 @@
   <div id="login">
       <div class="wrapper">
         <div class="bg" >
-          <my-canvas dots-num="66" is-color="true" round-color="black" line-color="red"></my-canvas>
+          <!--<my-canvas dots-num="66" is-color="true" round-color="black" line-color="red"></my-canvas>-->
         </div>
         <div class="login-container">
           <h1>统计综合管理系统</h1>
@@ -46,7 +46,7 @@
             onClose(){
             }
           });
-          this.$router.push({path:'/'});
+          this.$router.push({path:'/index'});
         }else{
           this.$Message.error({
             content:'用户名和密码为admin',
@@ -91,7 +91,7 @@ body
     justify-content center;
     align-items center;
     .bg
-      background-image url("../../assets/bg/Train.jpg")
+      background-image url("../../assets/bg/u0.jpg")
       background-size 100% 100%;
       background-repeat no-repeat;
       background-position center;
