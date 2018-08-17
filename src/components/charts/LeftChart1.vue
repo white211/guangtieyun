@@ -4,20 +4,26 @@
 </template>
 
 <script>
+  import store from '../../store'
   export default {
     name: "left-chart1",
     data() {
-      return {};
+      return {
+        data:store.state.leftChart1,
+      };
     },
     mounted(){
-      this.draw();
+      let data1 = store.state.allData.leftChart1[0];
+      store.commit("leftChart1",data1);
+      this.data = this.leftChartData;
+      this.draw(this.leftChartData);
     },
     methods:{
-      draw(){
+      draw(leftChartData){
         let leftCharts1 = this.$echarts.init(document.getElementById("leftChart1"));
         let option = {
           title: {
-            text: "2018年4月集团运输收入同期对比",
+            text: "2018年4月集团"+leftChartData.name+"同期对比",
             left: 'center',
             textStyle:{
               align:'center',
@@ -58,8 +64,8 @@
           yAxis: [{
             type: 'value',
             scale: true,
-            name: '运输收入',
-            max: 80,
+            name: this.data.name,
+            // max: 80,
             min: 0,
             boundaryGap: [0.2, 0.2],
             axisLine: {
@@ -75,7 +81,7 @@
             type: 'value',
             scale: true,
             name: '同期对比(%)',
-            max: 12,
+            // max: 12,
             min: 0,
             boundaryGap: [0.2, 0.2],
             axisLine: {
@@ -98,7 +104,7 @@
             top: 50,
             data: [
               {
-                name:'运输收入',
+                name:this.leftChartData.name,
                 textStyle:{
                   color:'#d3d3d3',
                 }
@@ -111,16 +117,16 @@
             ],
           },
           series: [{
-            name: '运输收入',
+            name: this.leftChartData.name,
             type: 'bar',
-            data: [45, 60],
+            data: [leftChartData.data[0], leftChartData.data[1]],
             color: 'rgb(42,144,143)',
             barWidth: 66
           },
             {
               name: '同期对比',
               type: 'line',
-              data: [0, 5],
+              data: [0,leftChartData.data[2]],
               color: 'rgb(144,198,99)',
               yAxisIndex:1
             }
@@ -128,8 +134,22 @@
         }
         leftCharts1.setOption(option);
       }
+    },
+    watch:{
+      leftChartData(){
+        this.draw(this.leftChartData);
+      }
+    },
+    computed:{
+      leftChartData:{
+        get(){
+          return store.state.leftChart1;
+        },
+        set(value){
+          return store.commit("leftChart1",value);
+        }
+      }
     }
-
   };
 </script>
 

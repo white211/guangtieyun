@@ -4,18 +4,24 @@
 </template>
 
 <script>
+  import  store from '../../store'
   export default {
     name: "right-chart2",
+
     data() {
       return {
 
       };
     },
+
     mounted(){
-      this.draw();
+      let data4 = store.state.allData.rightChart2;
+      store.commit("rightChart2",data4);
+      this.draw(this.rightChart2);
     },
+
     methods:{
-      draw(){
+      draw(data){
         let rightChart2 = this.$echarts.init(document.getElementById("rightChart2"));
         let option = {
           title:{
@@ -50,116 +56,116 @@
             splitNumber:10,
             startAngle:45,
             type:'category',
-            data:[
-              {
-                value:'运输收入',
-                textStyle:{
-                  color:'#d3d3d3'
-                },
-              },
-              {
-                value:'运输收入',
-                textStyle:{
-                  color:'#d3d3d3'
-                },
-              },
-              {
-                value:'运输收入',
-                textStyle:{
-                  color:'#d3d3d3'
-                },
-              },
-              {
-                value:'运输收入',
-                textStyle:{
-                  color:'#d3d3d3'
-                },
-              },
-              {
-                value:'运输收入',
-                textStyle:{
-                  color:'#d3d3d3'
-                },
-              },
-              {
-                value:'运输收入',
-                textStyle:{
-                  color:'#d3d3d3'
-                },
-              },
-              {
-                value:'运输收入',
-                textStyle:{
-                  color:'#d3d3d3'
-                },
-              },
-              {
-                value:'运输收入',
-                textStyle:{
-                  color:'#d3d3d3'
-                },
-              },
-              {
-                value:'运输收入',
-                textStyle:{
-                  color:'#d3d3d3'
-                },
-              },
-              {
-                value:'运输收入',
-                textStyle:{
-                  color:'#d3d3d3'
-                },
-              },
-              {
-                value:'运输收入',
-                textStyle:{
-                  color:'#d3d3d3'
-                },
-              },{
-                value:'运输收入',
-                textStyle:{
-                  color:'#d3d3d3'
-                },
-              },
-              {
-                value:'运输收入',
-                textStyle:{
-                  color:'#d3d3d3'
-                },
-              },
-              {
-                value:'运输收入',
-                textStyle:{
-                  color:'#d3d3d3'
-                },
-              },
-              {
-                value:'运输收入',
-                textStyle:{
-                  color:'#d3d3d3'
-                },
-              },
-              {
-                value:'运输收入',
-                textStyle:{
-                  color:'#d3d3d3'
-                },
-              },
-              {
-                value:'运输收入',
-                textStyle:{
-                  color:'#d3d3d3'
-                },
-              },
-              {
-                value:'运输收入',
-                textStyle:{
-                  color:'#d3d3d3'
-                },
-              },
-
-
+            data:getData(data).nameData,
+              // [
+              // {
+              //   value:'运输收入',
+              //   textStyle:{
+              //     color:'#d3d3d3'
+              //   },
+              // },
+              // {
+              //   value:'运输收入',
+              //   textStyle:{
+              //     color:'#d3d3d3'
+              //   },
+              // },
+              // {
+              //   value:'运输收入',
+              //   textStyle:{
+              //     color:'#d3d3d3'
+              //   },
+              // },
+              // {
+              //   value:'运输收入',
+              //   textStyle:{
+              //     color:'#d3d3d3'
+              //   },
+              // },
+              // {
+              //   value:'运输收入',
+              //   textStyle:{
+              //     color:'#d3d3d3'
+              //   },
+              // },
+              // {
+              //   value:'运输收入',
+              //   textStyle:{
+              //     color:'#d3d3d3'
+              //   },
+              // },
+              // {
+              //   value:'运输收入',
+              //   textStyle:{
+              //     color:'#d3d3d3'
+              //   },
+              // },
+              // {
+              //   value:'运输收入',
+              //   textStyle:{
+              //     color:'#d3d3d3'
+              //   },
+              // },
+              // {
+              //   value:'运输收入',
+              //   textStyle:{
+              //     color:'#d3d3d3'
+              //   },
+              // },
+              // {
+              //   value:'运输收入',
+              //   textStyle:{
+              //     color:'#d3d3d3'
+              //   },
+              // },
+              // {
+              //   value:'运输收入',
+              //   textStyle:{
+              //     color:'#d3d3d3'
+              //   },
+              // },
+              // {
+              //   value:'运输收入',
+              //   textStyle:{
+              //     color:'#d3d3d3'
+              //   },
+              // },
+              // {
+              //   value:'运输收入',
+              //   textStyle:{
+              //     color:'#d3d3d3'
+              //   },
+              // },
+              // {
+              //   value:'运输收入',
+              //   textStyle:{
+              //     color:'#d3d3d3'
+              //   },
+              // },
+              // {
+              //   value:'运输收入',
+              //   textStyle:{
+              //     color:'#d3d3d3'
+              //   },
+              // },
+              // {
+              //   value:'运输收入',
+              //   textStyle:{
+              //     color:'#d3d3d3'
+              //   },
+              // },
+              // {
+              //   value:'运输收入',
+              //   textStyle:{
+              //     color:'#d3d3d3'
+              //   },
+              // },
+              // {
+              //   value:'运输收入',
+              //   textStyle:{
+              //     color:'#d3d3d3'
+              //   },
+              // },
               // '运输收入',
               // '旅客发送量',
               // '货物运送量',
@@ -187,7 +193,7 @@
               // '客车运行',
               // '货车出发',
               // '货车运行'
-            ],
+            // ]
             z:5,
             splitLine:{
               show:true,
@@ -200,10 +206,7 @@
           series:[
             {
              type:'bar',
-              data: [50, 60, 40, 41, 51, 52, 53, 54,
-                59, 55, 60, 61, 62, 55, 66, 77,
-                80, 22, 23, 24, 25, 26, 45, 56, 78, 88
-              ],
+              data: getData(data).valueData,
               coordinateSystem: 'polar',
               name: 'A',
               // stack: 'a',
@@ -215,8 +218,43 @@
             data: ['A']
           }
         }
+        function getData(data1) {
+          var nameData = [];
+          var valueData= [];
+           for(var i = 0;i<data1.length;i++){
+             nameData.push({
+               value:data1[i].name,
+               textStyle:{
+                 color:'#d3d3d3'
+               },
+             },);
+              valueData.push(data1[i].data);
+           }
+           return {
+             nameData:nameData,
+             valueData:valueData
+           }
+        }
         rightChart2.setOption(option);
       }
+    },
+
+    computed:{
+      rightChart2:{
+        get(){
+          return store.state.rightChart2;
+        },
+        set(){
+          return store.commit("rightChart2",value);
+        }
+      }
+    },
+
+    watch:{
+      rightChart2(){
+        this.draw(this.rightChart2);
+      }
+
     }
   };
 </script>

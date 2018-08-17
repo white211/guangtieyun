@@ -3,20 +3,23 @@
 </template>
 
 <script>
+  import  store from '../../store'
   export default {
     name: "right-chart1",
     data() {
       return {};
     },
     mounted() {
-      this.draw();
+      let data1 = store.state.allData.rightChart1[0];
+      store.commit("rightChart1",data1);
+      this.draw(this.rightChart1);
     },
     methods: {
-      draw(){
-        let rightChart1 = this.$echarts.init(document.getElementById("rightChart1"));
+      draw(rightChart1){
+        let rightChart = this.$echarts.init(document.getElementById("rightChart1"));
         let option = {
           title: {
-            text: "2018年1-4月集团运输收入同期对比",
+            text: "2018年1-4月集团"+rightChart1.name+"同期对比",
             left: 'center',
             textStyle:{
               align:'center',
@@ -42,7 +45,7 @@
                 }
               },
               {
-                value:'2018/1-2017/4',
+                value:'2018/1-2018/4',
                 textStyle:{
                   color:'#d3d3d3'
                 }
@@ -57,8 +60,8 @@
           yAxis: [{
             type: 'value',
             scale: true,
-            name: '运输收入',
-            max: 80,
+            name: rightChart1.name,
+            // max: 80,
             min: 0,
             boundaryGap: [0.2, 0.2],
             axisLine: {
@@ -74,7 +77,7 @@
             type: 'value',
             scale: true,
             name: '同期对比(%)',
-            max: 12,
+            // max: 12,
             min: 0,
             boundaryGap: [0.2, 0.2],
             axisLine: {
@@ -96,7 +99,7 @@
             top: 50,
             data: [
               {
-                name:'运输收入',
+                name:rightChart1.name,
                 textStyle:{
                   color:'#d3d3d3',
                 }
@@ -109,22 +112,37 @@
             ],
           },
           series: [{
-            name: '运输收入',
+            name: rightChart1.name,
             type: 'bar',
-            data: [45, 60],
+            data: [rightChart1.data[0], rightChart1.data[1]],
             color: 'rgb(42,144,143)',
             barWidth: 66,
           },
             {
               name: '同期对比(%)',
               type: 'line',
-              data: [0, 5],
+              data: [0, rightChart1.data[2]],
               color: 'rgb(144,198,99)',
               yAxisIndex:1
             }
           ]
         }
-        rightChart1.setOption(option);
+        rightChart.setOption(option);
+      }
+    },
+    computed:{
+      rightChart1:{
+        get(){
+          return store.state.rightChart1;
+        },
+        set(){
+          return store.commit("rightChart1",value);
+        }
+      }
+    },
+    watch:{
+      rightChart1(){
+        this.draw(this.rightChart1);
       }
     }
   };

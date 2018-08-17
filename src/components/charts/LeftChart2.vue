@@ -5,20 +5,24 @@
 </template>
 
 <script>
+  import store from '../../store'
+
   export default {
     name: "left-chart2",
     data() {
       return {};
     },
     mounted(){
-      this.draw();
+      let data2 = store.state.allData.leftChart2[0];
+      store.commit("leftChart2",data2);
+      this.draw(this.leftChartData2);
     },
     methods:{
-      draw(){
+      draw(leftChartData2){
         let leftChart2 = this.$echarts.init(document.getElementById("leftChart2"));
         let option = {
           title: {
-            text: '2018年4月集团公司货物发送量与月计划比',
+            text: '2018年4月集团公司'+leftChartData2.name+'与月计划比',
             left:'center',
             textStyle:{
               color:'#d3d3d3',
@@ -40,6 +44,7 @@
           xAxis: {
             type: 'value',
             boundaryGap: [0, 0.01],
+            min:0,
             axisLine:{
               lineStyle:{
                 color:'#d3d3d3'
@@ -63,7 +68,7 @@
               name: '实际完成',
               stack:'总量',
               type: 'bar',
-              data: [758.37,758.37],
+              data: [leftChartData2.biyue[1],leftChartData2.binian[1]],
               color:'rgb(255,211,81)',
               barWidth:40,
             },
@@ -71,20 +76,35 @@
               name: '差额',
               stack:'总量',
               type: 'bar',
-              data: [6,50],
+              data: [leftChartData2.biyue[2],leftChartData2.binian[2]],
               barWidth:40,
             },
             {
               name: '计划',
               // stack:'总量',
               type: 'bar',
-              data: [764.40,756.16],
+              data: [leftChartData2.biyue[0],leftChartData2.binian[0]],
               color:'rgb(102,102,102)',
               barWidth:40,
             }
           ]
         };
         leftChart2.setOption(option);
+      }
+    },
+    watch:{
+      leftChartData2(){
+        this.draw(this.leftChartData2);
+      }
+    },
+    computed:{
+      leftChartData2:{
+        get(){
+          return store.state.leftChart2;
+        },
+        set(value){
+           store.commit("leftChart2",value);
+        }
       }
     }
   };

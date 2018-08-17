@@ -18,7 +18,6 @@
         let dataCount = 5e5;
         let data = generateData(dataCount);
         let bottomChart = this.$echarts.init(document.getElementById("bottomChart"));
-        // let echart = this.$echarts;
         var option = {
           title: {
             text:'25454',
@@ -98,8 +97,6 @@
           var baseValue = Math.random() * 1000;
           var time = +new Date(2011, 0, 1);
           var smallBaseValue;
-
-
           function next(idx) {
             smallBaseValue = idx % 30 === 0
               ? Math.random() * 700
@@ -110,17 +107,14 @@
               Math.round(baseValue + smallBaseValue) + 3000
             );
           }
-
           var categoryData = [];
           var valueData = [];
-
           for (var i = 0; i < count; i++) {
             // categoryData.push(echart.format.formatTime('yyyy-MM-dd\nhh:mm:ss', time));
             categoryData.push(time);
             valueData.push(next(i).toFixed(2));
             time += 1000;
           }
-
           return {
             categoryData: categoryData,
             valueData: valueData
@@ -128,7 +122,6 @@
         }
         bottomChart.setOption(option);
       }
-
 
     }
   };
