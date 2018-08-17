@@ -59,7 +59,7 @@
             type: 'value',
             scale: true,
             name: '运输收入',
-            max: 75,
+            max: 80,
             min: 0,
             boundaryGap: [0.2, 0.2],
             axisLine: {
@@ -75,19 +75,21 @@
             type: 'value',
             scale: true,
             name: '同期对比(%)',
-            max: 12.5,
+            max: 12,
             min: 0,
             boundaryGap: [0.2, 0.2],
             axisLine: {
               show: false
             },
+            interval:3,
             axisLabel:{
               color:'rgb(144,198,99)'
             },
             splitNumber: 5,
             nameTextStyle:{
               color:'rgb(144,198,99)'
-            }
+            },
+            minInterval:3
           }],
           legend: {
             orient: 'vertical',
@@ -120,6 +122,7 @@
               type: 'line',
               data: [0, 5],
               color: 'rgb(144,198,99)',
+              yAxisIndex:1
             }
           ]
         }

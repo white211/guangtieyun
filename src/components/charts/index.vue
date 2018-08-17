@@ -22,7 +22,7 @@
       </div>
     </div>
     <div id="bottom">
-
+      <bottom-chart></bottom-chart>
     </div>
   </div>
 </template>
@@ -33,6 +33,7 @@
   import topCenter from '../charts/Center';
   import rightChart1 from '../charts/RightChart1';
   import rightChart2 from '../charts/RightChart2';
+  import bottomChart from '../charts/BottomChart'
 
   export default {
     name: "index",
@@ -44,7 +45,8 @@
       leftChart2,
       topCenter,
       rightChart1,
-      rightChart2
+      rightChart2,
+      bottomChart
     },
     mounted() {
 
@@ -77,12 +79,12 @@
       /*border: 1px solid white;*/
       background: rgb(42, 42, 42);
       display: inline-block;
+      margin-bottom: 50px;
     }
     #leftChart2 {
       width: 100%;
       height: 400px;
       /*border: 1px solid white;*/
-      margin-top: 50px;
       background: rgb(42, 42, 42);
       display: inline-block;
     }
@@ -91,7 +93,6 @@
   #top-center {
     width: 40%;
     height: 850px;
-    /*border: 1px solid white;*/
     display: inline-block;
     margin-left: 1%;
     margin-right: 1%;
@@ -108,12 +109,12 @@
       width: 100%;
       background: rgb(42, 42, 42);
       display: inline-block;
+      margin-bottom: 50px;
     }
     #rightChart2 {
       /*border: 1px solid white;*/
       height: 400px;
       width: 100%;
-      margin-top: 50px;
       background: rgb(42, 42, 42);
       display: inline-block;
     }
@@ -122,7 +123,10 @@
   #bottom {
     width: 100%;
     height: 400px;
-    border: 1px solid white;
+    /*border: 1px solid white;*/
+    text-align: center;
+    vertical-align: center;
+    background: rgb(42, 42, 42);
   }
 
 </style>
