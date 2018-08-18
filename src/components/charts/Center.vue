@@ -271,7 +271,6 @@
     overflow-x: hidden;
     flex: 1;
   }
-
   ul li {
     list-style: none;
     font-size: 20px;
