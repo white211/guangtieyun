@@ -20,7 +20,25 @@
     methods:{
       draw(leftChartData2){
         let leftChart2 = this.$echarts.init(document.getElementById("leftChart2"));
+        if(leftChartData2.biyue[1]<leftChartData2.biyue[0]){
+          leftChartData2.biyue[2] = Math.abs(leftChartData2.biyue[2]);
+        }
+        else if(leftChartData2.biyue[1]>leftChartData2.biyue[0]) {
+          leftChartData2.biyue[1] = leftChartData2.biyue[0];
+        }
+        if(leftChartData2.binian[1]<leftChartData2.binian[0]){
+          leftChartData2.binian[2] = Math.abs(leftChartData2.binian[2]);
+        }
+        else if(leftChartData2.binian[1]>leftChartData2.binian[0]){
+          leftChartData2.binian[1] = leftChartData2.binian[0];
+        }
         let option = {
+          tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+              type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+          },
           title: {
             text: '2018年4月集团公司'+leftChartData2.name+'与月计划比',
             left:'center',
@@ -30,7 +48,6 @@
               align:'center',
               rich:{
                 a:{
-
                 }
               }
             },
@@ -45,6 +62,7 @@
             type: 'value',
             boundaryGap: [0, 0.01],
             min:0,
+            scale: true,
             axisLine:{
               lineStyle:{
                 color:'#d3d3d3'
@@ -59,8 +77,9 @@
                 color:'#d3d3d3'
               }
             },
+            scale: true,
             axisLabel:{
-              rotate:-90
+              rotate:-30
             }
           },
           series: [
@@ -69,15 +88,16 @@
               stack:'总量',
               type: 'bar',
               data: [leftChartData2.biyue[1],leftChartData2.binian[1]],
-              color:'rgb(255,211,81)',
+              color:'rgb(42,144,143)',
               barWidth:40,
             },
             {
               name: '差额',
               stack:'总量',
               type: 'bar',
-              data: [leftChartData2.biyue[2],leftChartData2.binian[2]],
+              data: [Math.abs(leftChartData2.biyue[2]),Math.abs(leftChartData2.binian[2])],
               barWidth:40,
+              // color:'green'
             },
             {
               name: '计划',

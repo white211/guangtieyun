@@ -42,7 +42,7 @@
           </div>
         </Menu>
       </Header>
-      <Content :style="{margin: '64px 0px 0', minHeight: '1200px'}" class="content">
+      <Content :style="{margin: '64px 0px 0'}" class="content">
         <router-view></router-view>
       </Content>
     </Layout>
@@ -82,7 +82,7 @@
   }
   .header {
     z-index: 100;
-    max-width: 2000px;
+    /*max-width: 2000px;*/
     /*background-color: rgb(51, 51, 53);*/
   }
 
@@ -112,7 +112,7 @@
   }
   .content {
     /*background-color: rgb(51, 51, 53);*/
-    max-width: 2000px;
+    /*max-width: 2000px;*/
   }
   .myLayout{
     margin: 0 auto;

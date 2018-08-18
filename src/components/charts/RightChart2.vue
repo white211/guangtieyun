@@ -24,6 +24,12 @@
       draw(data){
         let rightChart2 = this.$echarts.init(document.getElementById("rightChart2"));
         let option = {
+          tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+              type : 'line'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+          },
           title:{
             text:'集团运输主要指标年累计完成情况',
             left:'center',
@@ -39,7 +45,7 @@
             }
           },
           radiusAxis: {
-              splitNumber:2,
+              splitNumber:4,
               min:0,
               max:100,
               axisLine:{
@@ -47,14 +53,13 @@
                   color:"#d3d3d3"
                 }
               },
-              z:10
+              z:6
           },
           polar: {
 
           },
           angleAxis:{
-            splitNumber:10,
-            startAngle:45,
+            startAngle: 45,
             type:'category',
             data:getData(data).nameData,
               // [
@@ -208,14 +213,17 @@
              type:'bar',
               data: getData(data).valueData,
               coordinateSystem: 'polar',
-              name: 'A',
+              name: '数值',
               // stack: 'a',
-              color:'rgb(42,144,143)'
+              color:'rgb(42,144,143)',
+              label:{
+               show:true
+              }
             }
           ],
           legend: {
             show: false,
-            data: ['A']
+            data: ['数值']
           }
         }
         function getData(data1) {
@@ -225,7 +233,7 @@
              nameData.push({
                value:data1[i].name,
                textStyle:{
-                 color:'#d3d3d3'
+                 color:'#d3d3d3',
                },
              },);
               valueData.push(data1[i].data);

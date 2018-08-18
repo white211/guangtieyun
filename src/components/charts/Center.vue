@@ -7,7 +7,7 @@
       <Checkbox label="2" :style="{color:'grey'}">无计划</Checkbox>
     </CheckboxGroup>
     <ul>
-      <li>
+    <li>
         <div class="header">
           <span>指标</span>
           <span>完成值</span>
@@ -213,19 +213,19 @@
     methods: {
       showData(id) {
         for (var i = 0; i < store.state.allData.leftChart1.length; i++) {
-          if(store.state.allData.leftChart1[i].id == id){
+          if (store.state.allData.leftChart1[i].id == id) {
             let data1 = store.state.allData.leftChart1[i];
             store.commit("leftChart1", data1);
           }
         }
         for (var i = 0; i < store.state.allData.leftChart2.length; i++) {
-          if(store.state.allData.leftChart2[i].id == id){
+          if (store.state.allData.leftChart2[i].id == id) {
             let data2 = store.state.allData.leftChart2[i];
             store.commit("leftChart2", data2);
           }
         }
         for (var i = 0; i < store.state.allData.rightChart1.length; i++) {
-          if(store.state.allData.rightChart1[i].id == id){
+          if (store.state.allData.rightChart1[i].id == id) {
             let data3 = store.state.allData.rightChart1[i];
             store.commit("rightChart1", data3);
           }
@@ -284,11 +284,17 @@
     transition: all 0.5s
   }
 
-  ul li .header {
+  .header {
     font-weight: bold;
   }
 
-  ul li span {
+  .header span {
+    display: inline-block;
+    width: 49%;
+    height: 50px;
+    text-align: center;
+  }
+  ul li span{
     display: inline-block;
     width: 49%;
     height: 50px;
@@ -298,24 +304,44 @@
   .data:hover {
     cursor: pointer;
     opacity: 1;
-    background: rgb(255, 255, 255);
-    color: black;
     font-weight: bold;
+    background-color: rgba(255,255,255,0.1);
+    transition: all 0.3s;
+    color: white;
   }
-
   .red {
-    background-color: rgba(226, 82, 81, 0.7);
+    color: rgba(226, 82, 81, 0.7);
   }
 
   .yellow {
-    background-color: rgba(255, 211, 81, 0.5);
-  }
-
-  .green {
-    background-color: rgba(144, 198, 99, 0.9);
+    color: rgba(255, 211, 81, 0.5);
   }
 
   .grey {
-    background-color: rgb(51, 51, 53);
+    color: rgb(51, 51, 53);
+  }
+
+  .green {
+    color: rgba(144, 198, 99, 0.9);
+  }
+
+  .red:hover {
+    /*background-color: rgba(226, 82, 81, 0.7);*/
+    /*color: white;*/
+  }
+
+  .yellow:hover {
+    /*background-color: rgba(255, 211, 81, 0.5);*/
+    /*color: white;*/
+  }
+
+  .green:hover {
+    /*background-color: rgba(144, 198, 99, 0.9);*/
+    /*color: white;*/
+  }
+
+  .grey:hover {
+    /*background-color: rgb(51, 51, 53);*/
+    /*color: white;*/
   }
 </style>

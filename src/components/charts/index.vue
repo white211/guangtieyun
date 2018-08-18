@@ -271,7 +271,7 @@
                 id:'6',
                 name:'行包周转量',
                 biyue:[,0.20, ],
-                binian:[0.25,0.20,-0.06]
+                binian:[0.25,0.20,-0.05]
               },
               {
                 id:'7',
@@ -307,7 +307,7 @@
                 id:'12',
                 name:'货车周转时间',
                 biyue:[2.17,2.12,-0.05],
-                binian:[2.17,2.12,-0.12]
+                binian:[2.17,2.12,-0.05]
               },
               {
                 id:'13',
@@ -490,10 +490,10 @@
     #leftChart1 {
       width: 100%;
       height: 400px;
-      /*border: 1px solid white;*/
       background: rgb(42, 42, 42);
       display: inline-block;
       margin-bottom: 50px;
+      border-radius: 8px;
     }
     #leftChart2 {
       width: 100%;
@@ -501,6 +501,7 @@
       /*border: 1px solid white;*/
       background: rgb(42, 42, 42);
       display: inline-block;
+      border-radius: 8px;
     }
   }
 
@@ -510,7 +511,8 @@
     display: inline-block;
     margin-left: 1%;
     margin-right: 1%;
-    background: rgb(42, 42, 42);
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
   }
 
   #top-right {
@@ -518,12 +520,12 @@
     height: 850px;
     display: inline-block;
     #rightChart1 {
-      /*border: 1px solid white;*/
       height: 400px;
       width: 100%;
       background: rgb(42, 42, 42);
       display: inline-block;
       margin-bottom: 50px;
+      border-radius: 8px;
     }
     #rightChart2 {
       /*border: 1px solid white;*/
@@ -531,6 +533,7 @@
       width: 100%;
       background: rgb(42, 42, 42);
       display: inline-block;
+      border-radius: 8px;
     }
   }
 
