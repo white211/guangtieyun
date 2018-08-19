@@ -8,13 +8,14 @@ import 'iview/dist/styles/iview.css'
 import {Message} from  'iview'
 import echarts from 'echarts'
 import china from 'echarts/map/js/china'
+// import $ from  'jquery'
+// import nicescroll from 'jquery.nicescroll'
 
 echarts.registerMap('china', china)
 Vue.config.productionTip = false
 Vue.use(iView)
 Vue.prototype.$Message = Message
 Vue.prototype.$echarts = echarts
-
 
 /* eslint-disable no-new */
 new Vue({

@@ -42,6 +42,7 @@
           title: {
             text: '2018年4月集团公司'+leftChartData2.name+'与月计划比',
             left:'center',
+            top:15,
             textStyle:{
               color:'#d3d3d3',
               fontSize:16,

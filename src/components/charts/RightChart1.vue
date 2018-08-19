@@ -21,6 +21,7 @@
           title: {
             text: "2018年1-4月集团"+rightChart1.name+"同期对比",
             left: 'center',
+            top:15,
             textStyle:{
               align:'center',
               fontSize:16,

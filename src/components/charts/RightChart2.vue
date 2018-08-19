@@ -26,6 +26,7 @@
         let option = {
           tooltip : {
             trigger: 'axis',
+
             axisPointer : {            // 坐标轴指示器，坐标轴触发有效
               type : 'line'        // 默认为直线，可选为：'line' | 'shadow'
             }
@@ -33,6 +34,7 @@
           title:{
             text:'集团运输主要指标年累计完成情况',
             left:'center',
+            top:15,
             textStyle:{
               color:'#d3d3d3',
               fontSize:16,
@@ -210,7 +212,7 @@
           },
           series:[
             {
-             type:'bar',
+              type:'bar',
               data: getData(data).valueData,
               coordinateSystem: 'polar',
               name: '数值',

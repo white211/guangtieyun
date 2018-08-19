@@ -66,6 +66,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ]),
+
   ]
 })
 

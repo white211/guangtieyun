@@ -470,6 +470,7 @@
 </script>
 
 <style scoped lang="less">
+
   #chart {
     display: inline-block;
     width: 100%;
