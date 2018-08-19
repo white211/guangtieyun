@@ -68,7 +68,8 @@
             type: 'value',
             scale: true,
             name: rightChart1.name,
-            // max: 80,
+            // max: rightChart1.data[0]>rightChart1.data[1]?Math.ceil(rightChart1.data[0]*1.2):
+            //   Math.ceil(rightChart1.data[1]*1.2),
             min: 0,
             boundaryGap: [0.2, 0.2],
             axisLine: {
@@ -124,13 +125,27 @@
             data: [rightChart1.data[0], rightChart1.data[1]],
             color: 'rgb(42,144,143)',
             barWidth: 66,
+            label: {
+              normal:{
+                show: true,
+                position:'top',
+                color:'white'
+              }
+            },
           },
             {
               name: '同期对比(%)',
               type: 'line',
               data: [0, rightChart1.data[2]],
               color: 'rgb(144,198,99)',
-              yAxisIndex:1
+              yAxisIndex:1,
+              label: {
+                normal:{
+                  show: true,
+                  position:'top',
+                  color:'white'
+                }
+              },
             }
           ]
         }

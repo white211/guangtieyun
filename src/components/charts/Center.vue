@@ -6,7 +6,7 @@
       <Checkbox label="1" :style="{color:'rgba(144,198,99,0.9)'}">进度超前</Checkbox>
       <Checkbox label="2" :style="{color:'grey'}">无计划</Checkbox>
     </CheckboxGroup>
-    <ul>
+    <ul class="list">
     <li>
         <div class="header">
           <span>指标</span>
@@ -26,6 +26,8 @@
 
 <script>
   import store from '../../store';
+  import $ from 'jquery';
+  import niceScroll from  'jquery.nicescroll';
 
   export default {
     name: "center",
@@ -208,6 +210,7 @@
       };
     },
     mounted() {
+      $(".list").niceScroll();
       store.commit("listData", this.data1);
     },
     methods: {
@@ -343,4 +346,68 @@
     /*background-color: rgb(51, 51, 53);*/
     /*color: white;*/
   }
+
+  /*.list::-webkit-scrollbar {*/
+    /*width:0px;*/
+    /*height:0px;*/
+  /*}*/
+  /*.list::-webkit-scrollbar-button    {*/
+    /*background-color:rgba(0,0,0,0);*/
+  /*}*/
+  /*.list::-webkit-scrollbar-track     {*/
+    /*background-color:rgba(0,0,0,0);*/
+  /*}*/
+  /*.list::-webkit-scrollbar-track-piece {*/
+    /*background-color:rgba(0,0,0,0);*/
+  /*}*/
+  /*.scroll_content::-webkit-scrollbar-thumb{*/
+    /*background-color:rgba(0,0,0,0);*/
+  /*}*/
+  /*.list::-webkit-scrollbar-corner {*/
+    /*background-color:rgba(0,0,0,0);*/
+  /*}*/
+  /*.list::-webkit-scrollbar-resizer  {*/
+    /*background-color:rgba(0,0,0,0);*/
+  /*}*/
+  /*.list::-webkit-scrollbar {*/
+    /*!*width:10px;*!*/
+    /*!*height:10px;*!*/
+  /*}*/
+  /*!*o内核*!*/
+  /*.list .-o-scrollbar{*/
+    /*-moz-appearance: none !important;*/
+    /*background: rgba(0,255,0,0) !important;*/
+  /*}*/
+  /*.list::-o-scrollbar-button    {*/
+    /*background-color:rgba(0,0,0,0);*/
+  /*}*/
+  /*.list::-o-scrollbar-track     {*/
+    /*background-color:rgba(0,0,0,0);*/
+  /*}*/
+  /*.list::-o-scrollbar-track-piece {*/
+    /*background-color:rgba(0,0,0,0);*/
+  /*}*/
+  /*.list::-o-scrollbar-thumb{*/
+    /*background-color:rgba(0,0,0,0);*/
+  /*}*/
+  /*.list::-o-scrollbar-corner {*/
+    /*background-color:rgba(0,0,0,0);*/
+  /*}*/
+  /*.list::-o-scrollbar-resizer  {*/
+    /*background-color:rgba(0,0,0,0);*/
+  /*}*/
+  /*IE10,IE11,IE12*/
+  /*.list{*/
+    /*-ms-scroll-chaining: chained;*/
+    /*-ms-overflow-style: none;*/
+    /*-ms-content-zooming: zoom;*/
+    /*-ms-scroll-rails: none;*/
+    /*-ms-content-zoom-limit-min: 100%;*/
+    /*-ms-content-zoom-limit-max: 500%;*/
+    /*-ms-scroll-snap-type: proximity;*/
+    /*-ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);*/
+    /*-ms-overflow-style: none;*/
+    /*overflow: auto;*/
+  /*}*/
+
 </style>

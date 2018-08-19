@@ -26,9 +26,8 @@
         let option = {
           tooltip : {
             trigger: 'axis',
-
             axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-              type : 'line'        // 默认为直线，可选为：'line' | 'shadow'
+              type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
             }
           },
           title:{
@@ -49,7 +48,7 @@
           radiusAxis: {
               splitNumber:4,
               min:0,
-              max:100,
+              // max:100,
               axisLine:{
                 lineStyle:{
                   color:"#d3d3d3"
@@ -208,6 +207,13 @@
                 color:"#d3d3d3",
                 type:"dashed"
               }
+            },
+            axisLabel:{
+              show:true,
+              // rotate:-90,
+              interval:0,
+              align:'center',
+              verticalAlign:'middle'
             }
           },
           series:[
@@ -218,9 +224,13 @@
               name: '数值',
               // stack: 'a',
               color:'rgb(42,144,143)',
-              label:{
-               show:true
-              }
+              label: {
+                normal:{
+                  show: true,
+                  // position:'top',
+                  color:'white'
+                }
+              },
             }
           ],
           legend: {

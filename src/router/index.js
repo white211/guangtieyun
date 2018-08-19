@@ -6,6 +6,7 @@ import Canvas from '../components/canvas'
 import Chart from '../components/charts/index'
 import Report from '../components/report/index'
 import Monitor from '../components/Monitor/index'
+import  test from '../components/charts/test'
 
 Vue.use(Router)
 
@@ -50,5 +51,10 @@ export default new Router({
       name:'Chart',
       component:Chart
     },
+    {
+      name:'test',
+      path:'/test',
+      component:test
+    }
     ]
 })
