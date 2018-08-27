@@ -90,7 +90,7 @@
               type: 'bar',
               data: [leftChartData2.biyue[1],leftChartData2.binian[1]],
               color:'rgb(42,144,143)',
-              barWidth:40,
+              barWidth:25,
               label: {
                 normal:{
                   show: true,
@@ -104,7 +104,7 @@
               stack:'总量',
               type: 'bar',
               data: [Math.abs(leftChartData2.biyue[2]),Math.abs(leftChartData2.binian[2])],
-              barWidth:40,
+              barWidth:25,
               label: {
                 normal:{
                   show: true,
@@ -120,7 +120,7 @@
               type: 'bar',
               data: [leftChartData2.biyue[0],leftChartData2.binian[0]],
               color:'rgb(102,102,102)',
-              barWidth:40,
+              barWidth:25,
               label: {
                 normal:{
                   show: true,

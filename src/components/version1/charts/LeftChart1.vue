@@ -73,7 +73,13 @@
             min: 0,
             boundaryGap: [0.2, 0.2],
             axisLine: {
-              show: false
+              show:false,
+              lineStyle:{
+                color:'#d3d3d3'
+              },
+            },
+            splitLine:{
+              show:true
             },
             axisLabel: {
               color: 'rgb(42,144,143)'
@@ -84,13 +90,19 @@
           }, {
             type: 'value',
             scale: true,
-            show:false,
+            show: true,
             name: '同期对比(%)',
             // max: 12,
             // min: 0,
             boundaryGap: [0.2, 0.2],
             axisLine: {
-              show: false
+              show: false,
+              lineStyle:{
+                color:'#d3d3d3'
+              }
+            },
+            splitLine:{
+              show:false
             },
             interval: 3,
             axisLabel: {

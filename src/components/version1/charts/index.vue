@@ -1,19 +1,19 @@
 <template>
   <div id="chart">
     <div id="top">
-      <div id="top-left">
-        <div id="leftChart1">
+      <div id="top-left" v-bind:style="{height:h}">
+        <div id="leftChart1" v-bind:style="{marginBottom:mb}">
           <left-chart1></left-chart1>
         </div>
-        <div id="leftChart2">
+        <div id="leftChart2" >
           <left-chart2></left-chart2>
         </div>
       </div>
-      <div id="top-center">
+      <div id="top-center" v-bind:style="{height:h}">
         <top-center></top-center>
       </div>
-      <div id="top-right">
-        <div id="rightChart1">
+      <div id="top-right" v-bind:style="{height:h}">
+        <div id="rightChart1" v-bind:style="{marginBottom:mb}">
           <right-chart1></right-chart1>
         </div>
         <div id="rightChart2">
@@ -40,6 +40,9 @@
     name: "index",
     data() {
       return {
+        clientHeight:'',
+        mb:'',
+        h:'',
         data:
           {
             leftChart1: [
@@ -359,6 +362,21 @@
                 data:'32.5'
               },
               {
+                id:'13',
+                name:'停时',
+                data:'99.1'
+              },
+              {
+                id:'14',
+                name:'中时',
+                data:'98.0'
+              },
+              {
+                id:'15',
+                name:'旅速',
+                data:'106.6'
+              },
+              {
                 id:'2',
                 name:'旅客发送量',
                 data:'32.93'
@@ -408,30 +426,17 @@
                 name:'卸空车数',
                 data:'98.0'
               },
-              {
-                id:'12',
-                name:'货车周转时间',
-                data:'98.7'
-              },
-              {
-                id:'13',
-                name:'停时',
-                data:'99.1'
-              },
-              {
-                id:'14',
-                name:'中时',
-                data:'98.0'
-              },
-              {
-                id:'15',
-                name:'旅速',
-                data:'106.6'
-              },
+
+
               {
                 id:'16',
                 name:'机车日车公里',
                 data:'102.0'
+              },
+              {
+                id:'12',
+                name:'货车周转时间',
+                data:'98.7'
               },
               {
                 id:'17',
@@ -450,7 +455,7 @@
               }
             ],
             bottomChart:[
-            ]
+            ],
           },
       };
     },
@@ -464,6 +469,12 @@
     },
     mounted() {
       store.commit("allData",this.data);
+      this.clientHeight = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      this.h = 300+300+this.clientHeight*0.01+'px';
+      this.mb = this.clientHeight*0.01+'px';
+      console.log("获取屏幕的宽度"+this.clientHeight);
+      console.log("块高度"+this.h);
+      console.log("与底部的距离",this.mb);
     },
     methods: {
 
@@ -488,19 +499,17 @@
 
   #top-left {
     width: 28%;
-    height: 850px;
     display: inline-block;
     #leftChart1 {
       width: 100%;
-      height: 400px;
+      height: 300px;
       background: rgb(42, 42, 42);
       display: inline-block;
-      margin-bottom: 50px;
       border-radius: 8px;
     }
     #leftChart2 {
       width: 100%;
-      height: 400px;
+      height: 300px;
       background: rgb(42, 42, 42);
       display: inline-block;
       border-radius: 8px;
@@ -509,7 +518,6 @@
 
   #top-center {
     width: 40%;
-    height: 850px;
     display: inline-block;
     margin-left: 1%;
     margin-right: 1%;
@@ -519,18 +527,17 @@
 
   #top-right {
     width: 28%;
-    height: 850px;
     display: inline-block;
     #rightChart1 {
-      height: 400px;
+      height: 300px;
       width: 100%;
       background: rgb(42, 42, 42);
       display: inline-block;
-      margin-bottom: 50px;
+      /*margin-bottom: 30px;*/
       border-radius: 8px;
     }
     #rightChart2 {
-      height: 400px;
+      height: 300px;
       width: 100%;
       background: rgb(42, 42, 42);
       display: inline-block;
@@ -540,7 +547,7 @@
 
   #bottom {
     width: 100%;
-    height: 400px;
+    height: 300px;
     text-align: center;
     vertical-align: center;
     background: rgb(42, 42, 42);

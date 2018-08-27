@@ -84,7 +84,7 @@
     z-index: 100;
     /*max-width: 2000px;*/
     /*background-color: rgb(51, 51, 53);*/
-    min-width: 1000px;
+    min-width: 1212px;
   }
 
   .layout-logo {
@@ -114,7 +114,7 @@
   .content {
     /*background-color: rgb(51, 51, 53);*/
     /*max-width: 2000px;*/
-    min-width: 1000px;
+    min-width: 1212px;
   }
   .myLayout{
     margin: 0 auto;

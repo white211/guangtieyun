@@ -222,12 +222,10 @@
               data: getData(data).valueData,
               coordinateSystem: 'polar',
               name: '累计完成(%)',
-              // stack: 'a',
               color:'rgb(42,144,143)',
               label: {
                 normal:{
                   show: true,
-                  // position:'top',
                   color:'white'
                 }
               },

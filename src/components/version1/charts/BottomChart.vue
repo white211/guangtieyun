@@ -1,5 +1,5 @@
 <template>
-  <div id="bottomChart" :style="{width:'100%',height:'400px'}">
+  <div id="bottomChart" :style="{width:'100%',height:'300px'}">
 
   </div>
 </template>
@@ -20,7 +20,7 @@
         let bottomChart = this.$echarts.init(document.getElementById("bottomChart"));
         var option = {
           title: {
-            text:this.$echarts.format.addCommas(dataCount)+' Data',
+            text:this.$echarts.format.addCommas(dataCount)+' 条数据',
             // text: echart.format.addCommas(dataCount) + ' Data',
             left: 10,
             textStyle:{

@@ -1,12 +1,12 @@
 <template>
   <div id="center">
-    <CheckboxGroup v-model="checkAllGroup" @on-change="checkAllGroupChange">
+    <CheckboxGroup v-model="checkAllGroup" @on-change="checkAllGroupChange" style="height: 50px;line-height: 50px">
       <Checkbox label="0" :style="{color:'rgba(255,211,81,0.9)'}">落后于年计划或月计划</Checkbox>
       <Checkbox label="-1" :style="{color:' rgba(226, 82, 81,0.9)'}">落后于月计划和年计划</Checkbox>
       <Checkbox label="1" :style="{color:'rgba(144,198,99,0.9)'}">进度超前</Checkbox>
       <Checkbox label="2" :style="{color:'#d3d3d3'}">无计划</Checkbox>
     </CheckboxGroup>
-    <div style="width: 100%;height: 50px;line-height: 50px;text-align: left">
+    <div style="width: 100%;height: 50px;line-height: 50px;text-align: left;">
       <Row>
         <Col span="5" style="color: white;font-size: 16px">
         选择年月：
@@ -16,14 +16,14 @@
         </Col>
       </Row>
     </div>
-    <ul class="list">
+    <ul class="list" v-bind:style="{height:hgh}">
       <li>
         <div class="header">
           <span>指标</span>
           <span>完成值</span>
         </div>
       </li>
-      <li class="data" v-for="item in data" @click="showData(item.id)" :class="{'red':item.alarm === -1,
+      <li class="data" v-for="item in data" @mouseenter="showData(item.id)" :class="{'red':item.alarm === -1,
       'green':item.alarm ===1,'grey':item.alarm === 2,'yellow':item.alarm===0}">
         <div class="block">
           <span class="sign">{{item.sign}}</span>
@@ -268,10 +268,15 @@
             label: '十二月份'
           },
         ],
-        model1: ''
+        model1: '',
+        clientHeight:'',
+        hgh:'510px',
       };
     },
     mounted() {
+      this.clientHeight = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      this.hgh = 300+300-50-50+this.clientHeight*0.01+'px';
+      console.log("列表的高度"+this.hgh);
       $(".list").niceScroll();
       store.commit("listData", this.data1);
     },
@@ -329,7 +334,7 @@
 
   ul {
     width: 100%;
-    height: 770px;
+    /*height: 510px;*/
     display: inline-block;
     overflow-y: scroll;
     overflow-x: hidden;

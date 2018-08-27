@@ -78,19 +78,25 @@
             axisLabel:{
               color:'rgb(42,144,143)'
             },
+            splitLine:{
+              show:true
+            },
             nameTextStyle:{
               color:'rgb(42,144,143)'
             }
           }, {
             type: 'value',
             scale: true,
-            show:false,
+            show: true,
             name: '同期对比(%)',
             // max: 12,
             // min: 0,
             boundaryGap: [0.2, 0.2],
             axisLine: {
               show: false
+            },
+            splitLine:{
+              show:false
             },
             axisLabel:{
               color:'rgb(144,198,99)'
