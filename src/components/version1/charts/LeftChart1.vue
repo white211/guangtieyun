@@ -4,7 +4,7 @@
 </template>
 
 <script>
-  import store from '../../store';
+  import store from '../../../store/index';
 
   export default {
     name: "left-chart1",
@@ -67,9 +67,9 @@
           yAxis: [{
             type: 'value',
             scale: true,
-            name: this.data.name,
-            // max: leftChartData.data[0]>leftChartData.data[1]?Math.ceil(leftChartData.data[0]*1.2):
-            //   Math.ceil(leftChartData.data[1]*1.2),
+            name: leftChartData.name,
+            max: leftChartData.data[0]>leftChartData.data[1]?Math.ceil(leftChartData.data[0]*1.5):
+              Math.ceil(leftChartData.data[1]*1.5),
             min: 0,
             boundaryGap: [0.2, 0.2],
             axisLine: {
@@ -84,9 +84,10 @@
           }, {
             type: 'value',
             scale: true,
+            show:false,
             name: '同期对比(%)',
             // max: 12,
-            min: 0,
+            // min: 0,
             boundaryGap: [0.2, 0.2],
             axisLine: {
               show: false
@@ -113,7 +114,7 @@
                   color: '#d3d3d3',
                 }
               }, {
-                name: '同期对比',
+                name: '同期对比(%)',
                 textStyle: {
                   color: '#d3d3d3'
                 }
@@ -135,7 +136,7 @@
             },
           },
             {
-              name: '同期对比',
+              name: '同期对比(%)',
               type: 'line',
               data: [0, leftChartData.data[2]],
               color: 'rgb(144,198,99)',

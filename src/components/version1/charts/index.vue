@@ -28,13 +28,13 @@
 </template>
 
 <script>
-  import leftChart1 from '../charts/LeftChart1';
-  import leftChart2 from '../charts/LeftChart2';
-  import topCenter from '../charts/Center';
-  import rightChart1 from '../charts/RightChart1';
-  import rightChart2 from '../charts/RightChart2';
-  import bottomChart from '../charts/BottomChart';
-  import store from '../../store'
+  import leftChart1 from './LeftChart1';
+  import leftChart2 from './LeftChart2';
+  import topCenter from './Center';
+  import rightChart1 from './RightChart1';
+  import rightChart2 from './RightChart2';
+  import bottomChart from './BottomChart';
+  import store from '../../../store/index'
 
   export default {
     name: "index",
@@ -465,13 +465,13 @@
     mounted() {
       store.commit("allData",this.data);
     },
-    methods: {}
+    methods: {
+
+    }
   };
 </script>
 
 <style scoped lang="less">
-
-
   #chart {
     display: inline-block;
     width: 100%;
@@ -483,6 +483,7 @@
   #top {
     width: 100%;
     padding: 1%;
+    text-align: center;
   }
 
   #top-left {
@@ -500,7 +501,6 @@
     #leftChart2 {
       width: 100%;
       height: 400px;
-      /*border: 1px solid white;*/
       background: rgb(42, 42, 42);
       display: inline-block;
       border-radius: 8px;
@@ -530,7 +530,6 @@
       border-radius: 8px;
     }
     #rightChart2 {
-      /*border: 1px solid white;*/
       height: 400px;
       width: 100%;
       background: rgb(42, 42, 42);

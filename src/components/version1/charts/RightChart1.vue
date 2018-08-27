@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  import  store from '../../store'
+  import  store from '../../../store/index'
   export default {
     name: "right-chart1",
     data() {
@@ -68,8 +68,8 @@
             type: 'value',
             scale: true,
             name: rightChart1.name,
-            // max: rightChart1.data[0]>rightChart1.data[1]?Math.ceil(rightChart1.data[0]*1.2):
-            //   Math.ceil(rightChart1.data[1]*1.2),
+            max: rightChart1.data[0]>rightChart1.data[1]?Math.ceil(rightChart1.data[0]*1.5):
+              Math.ceil(rightChart1.data[1]*1.5),
             min: 0,
             boundaryGap: [0.2, 0.2],
             axisLine: {
@@ -84,9 +84,10 @@
           }, {
             type: 'value',
             scale: true,
+            show:false,
             name: '同期对比(%)',
             // max: 12,
-            min: 0,
+            // min: 0,
             boundaryGap: [0.2, 0.2],
             axisLine: {
               show: false

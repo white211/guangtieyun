@@ -19,7 +19,7 @@
                   <MenuItem name="2-1">报表展示</MenuItem>
                 </router-link>
                 <router-link to="/chart">
-                  <MenuItem name="2-2">图标展示</MenuItem>
+                  <MenuItem name="2-2">图表展示</MenuItem>
                 </router-link>
               </MenuGroup>
             </Submenu>

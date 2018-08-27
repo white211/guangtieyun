@@ -4,7 +4,7 @@
 </template>
 
 <script>
-  import  store from '../../store'
+  import  store from '../../../store/index'
   export default {
     name: "right-chart2",
 
@@ -33,7 +33,7 @@
           title:{
             text:'集团运输主要指标年累计完成情况',
             left:'center',
-            top:15,
+            // top:15,
             textStyle:{
               color:'#d3d3d3',
               fontSize:16,
@@ -221,7 +221,7 @@
               type:'bar',
               data: getData(data).valueData,
               coordinateSystem: 'polar',
-              name: '数值',
+              name: '累计完成(%)',
               // stack: 'a',
               color:'rgb(42,144,143)',
               label: {

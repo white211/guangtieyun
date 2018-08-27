@@ -4,10 +4,20 @@
       <Checkbox label="0" :style="{color:'rgba(255,211,81,0.9)'}">落后于年计划或月计划</Checkbox>
       <Checkbox label="-1" :style="{color:' rgba(226, 82, 81,0.9)'}">落后于月计划和年计划</Checkbox>
       <Checkbox label="1" :style="{color:'rgba(144,198,99,0.9)'}">进度超前</Checkbox>
-      <Checkbox label="2" :style="{color:'grey'}">无计划</Checkbox>
+      <Checkbox label="2" :style="{color:'#d3d3d3'}">无计划</Checkbox>
     </CheckboxGroup>
+    <div style="width: 100%;height: 50px;line-height: 50px;text-align: left">
+      <Row>
+        <Col span="5" style="color: white;font-size: 16px">
+        选择年月：
+        </Col>
+        <Col span="8">
+        <DatePicker type="month" placeholder="选择月份" style="width: 150px"></DatePicker>
+        </Col>
+      </Row>
+    </div>
     <ul class="list">
-    <li>
+      <li>
         <div class="header">
           <span>指标</span>
           <span>完成值</span>
@@ -25,9 +35,9 @@
 </template>
 
 <script>
-  import store from '../../store';
+  import store from '../../../store/index';
   import $ from 'jquery';
-  import niceScroll from  'jquery.nicescroll';
+  import niceScroll from 'jquery.nicescroll';
 
   export default {
     name: "center",
@@ -155,7 +165,8 @@
           {
             sign: '技术速度',
             complete: '55.1公里/小时',
-            alarm: 19,
+            id: 19,
+            alarm: 1,
           },
           {
             sign: '机车单机走行率',
@@ -206,7 +217,58 @@
             id: 27,
           },
         ],
-        data2: []
+        data2: [],
+        cityList: [
+          {
+            value: '一月份',
+            label: '一月份'
+          },
+          {
+            value: '二月份',
+            label: '二月份'
+          },
+          {
+            value: '三月份',
+            label: '三月份'
+          },
+          {
+            value: '四月份',
+            label: '四月份'
+          },
+          {
+            value: '五月份',
+            label: '五月份'
+          },
+          {
+            value: '六月份',
+            label: '六月份'
+          },
+          {
+            value: '七月份',
+            label: '七月份'
+          },
+          {
+            value: '八月份',
+            label: '八月份'
+          },
+          {
+            value: '九月份',
+            label: '九月份'
+          },
+          {
+            value: '十月份',
+            label: '十月份'
+          },
+          {
+            value: '十一月份',
+            label: '十一月份'
+          },
+          {
+            value: '十二月份',
+            label: '十二月份'
+          },
+        ],
+        model1: ''
       };
     },
     mounted() {
@@ -263,17 +325,16 @@
     width: 100%;
     padding: 10px 3% 0 3%;
     display: inline-block;
-    flex-direction: column;
   }
 
   ul {
     width: 100%;
-    height: 820px;
+    height: 770px;
     display: inline-block;
     overflow-y: scroll;
     overflow-x: hidden;
-    flex: 1;
   }
+
   ul li {
     list-style: none;
     font-size: 20px;
@@ -296,7 +357,8 @@
     height: 50px;
     text-align: center;
   }
-  ul li span{
+
+  ul li span {
     display: inline-block;
     width: 49%;
     height: 50px;
@@ -307,10 +369,11 @@
     cursor: pointer;
     opacity: 1;
     font-weight: bold;
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     transition: all 0.3s;
     color: white;
   }
+
   .red {
     color: rgba(226, 82, 81, 0.7);
   }
@@ -320,7 +383,7 @@
   }
 
   .grey {
-    color: rgb(51, 51, 53);
+    color: #d3d3d3;
   }
 
   .green {
@@ -348,66 +411,66 @@
   }
 
   /*.list::-webkit-scrollbar {*/
-    /*width:0px;*/
-    /*height:0px;*/
+  /*width:0px;*/
+  /*height:0px;*/
   /*}*/
   /*.list::-webkit-scrollbar-button    {*/
-    /*background-color:rgba(0,0,0,0);*/
+  /*background-color:rgba(0,0,0,0);*/
   /*}*/
   /*.list::-webkit-scrollbar-track     {*/
-    /*background-color:rgba(0,0,0,0);*/
+  /*background-color:rgba(0,0,0,0);*/
   /*}*/
   /*.list::-webkit-scrollbar-track-piece {*/
-    /*background-color:rgba(0,0,0,0);*/
+  /*background-color:rgba(0,0,0,0);*/
   /*}*/
   /*.scroll_content::-webkit-scrollbar-thumb{*/
-    /*background-color:rgba(0,0,0,0);*/
+  /*background-color:rgba(0,0,0,0);*/
   /*}*/
   /*.list::-webkit-scrollbar-corner {*/
-    /*background-color:rgba(0,0,0,0);*/
+  /*background-color:rgba(0,0,0,0);*/
   /*}*/
   /*.list::-webkit-scrollbar-resizer  {*/
-    /*background-color:rgba(0,0,0,0);*/
+  /*background-color:rgba(0,0,0,0);*/
   /*}*/
   /*.list::-webkit-scrollbar {*/
-    /*!*width:10px;*!*/
-    /*!*height:10px;*!*/
+  /*!*width:10px;*!*/
+  /*!*height:10px;*!*/
   /*}*/
   /*!*o内核*!*/
   /*.list .-o-scrollbar{*/
-    /*-moz-appearance: none !important;*/
-    /*background: rgba(0,255,0,0) !important;*/
+  /*-moz-appearance: none !important;*/
+  /*background: rgba(0,255,0,0) !important;*/
   /*}*/
   /*.list::-o-scrollbar-button    {*/
-    /*background-color:rgba(0,0,0,0);*/
+  /*background-color:rgba(0,0,0,0);*/
   /*}*/
   /*.list::-o-scrollbar-track     {*/
-    /*background-color:rgba(0,0,0,0);*/
+  /*background-color:rgba(0,0,0,0);*/
   /*}*/
   /*.list::-o-scrollbar-track-piece {*/
-    /*background-color:rgba(0,0,0,0);*/
+  /*background-color:rgba(0,0,0,0);*/
   /*}*/
   /*.list::-o-scrollbar-thumb{*/
-    /*background-color:rgba(0,0,0,0);*/
+  /*background-color:rgba(0,0,0,0);*/
   /*}*/
   /*.list::-o-scrollbar-corner {*/
-    /*background-color:rgba(0,0,0,0);*/
+  /*background-color:rgba(0,0,0,0);*/
   /*}*/
   /*.list::-o-scrollbar-resizer  {*/
-    /*background-color:rgba(0,0,0,0);*/
+  /*background-color:rgba(0,0,0,0);*/
   /*}*/
   /*IE10,IE11,IE12*/
   /*.list{*/
-    /*-ms-scroll-chaining: chained;*/
-    /*-ms-overflow-style: none;*/
-    /*-ms-content-zooming: zoom;*/
-    /*-ms-scroll-rails: none;*/
-    /*-ms-content-zoom-limit-min: 100%;*/
-    /*-ms-content-zoom-limit-max: 500%;*/
-    /*-ms-scroll-snap-type: proximity;*/
-    /*-ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);*/
-    /*-ms-overflow-style: none;*/
-    /*overflow: auto;*/
+  /*-ms-scroll-chaining: chained;*/
+  /*-ms-overflow-style: none;*/
+  /*-ms-content-zooming: zoom;*/
+  /*-ms-scroll-rails: none;*/
+  /*-ms-content-zoom-limit-min: 100%;*/
+  /*-ms-content-zoom-limit-max: 500%;*/
+  /*-ms-scroll-snap-type: proximity;*/
+  /*-ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);*/
+  /*-ms-overflow-style: none;*/
+  /*overflow: auto;*/
   /*}*/
 
 </style>

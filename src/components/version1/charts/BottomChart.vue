@@ -15,7 +15,7 @@
     },
     methods: {
       draw() {
-        let dataCount = 5e5;
+        let dataCount = 2000;
         let data = generateData(dataCount);
         let bottomChart = this.$echarts.init(document.getElementById("bottomChart"));
         var option = {
@@ -46,13 +46,15 @@
           grid: {
             bottom: 90
           },
-          dataZoom: [{
+          dataZoom: [
+            {
             type: 'inside',
+          },
+            {
+            type: 'slider',
             textStyle:{
-              color:'white'
+              color: '#ffffff'
             }
-          }, {
-            type: 'slider'
           }],
           xAxis: {
             data: data.categoryData,
@@ -144,7 +146,6 @@
         }
         bottomChart.setOption(option);
       }
-
     }
   };
 </script>

@@ -3,15 +3,16 @@ import Router from 'vue-router'
 import Login from '../pages/login/login'
 import Index from '../pages/main/index'
 import Canvas from '../components/canvas'
-import Chart from '../components/charts/index'
-import Report from '../components/report/index'
-import Monitor from '../components/Monitor/index'
-import  test from '../components/charts/test'
+import Chart from '../components/version1/charts/index'
+import Report from '../components/version1/report/index'
+import Monitor from '../components/version1/Monitor/index'
+import  test from '../components/version1/charts/test'
+import Home from '../components/version1/home/home'
 
 Vue.use(Router)
 
 export default new Router({
-  mode:'history',
+  // mode:'history',
   // base:'/gt/',
   routes: [
     {
@@ -20,10 +21,21 @@ export default new Router({
       component: Login
     },
     {
+      name:'/',
+      path:'/',
+      redirect:'/home'
+    },
+    {
       path:"/index",
       name:'index',
       component:Index,
+      redirect:'/home',
       children:[
+        {
+          name:'home',
+          path:'/home',
+          component:Home,
+        },
         {
           path:'/report',
           name:'report',
