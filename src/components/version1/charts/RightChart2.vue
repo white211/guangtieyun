@@ -46,6 +46,7 @@
               fontSize: 16,
               align: 'left',
               verticalAlign: 'top',
+              lineHeight:20,
               rich: {
                 a: {}
               }
