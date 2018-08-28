@@ -20,9 +20,11 @@
         let bottomChart = this.$echarts.init(document.getElementById("bottomChart"));
         var option = {
           title: {
-            text:this.$echarts.format.addCommas(dataCount)+' 条数据',
+            // text:this.$echarts.format.addCommas(dataCount)+' 条数据',
+            text:'集团公司运输收入月度完成情况',
             // text: echart.format.addCommas(dataCount) + ' Data',
-            left: 10,
+            left: 'center',
+            top:15,
             textStyle:{
               color:"#d3d3d3"
             }
