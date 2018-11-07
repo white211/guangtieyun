@@ -14,7 +14,10 @@
     "iview": "^3.0.0",
     "jquery": "^3.3.1",
     "jquery.nicescroll": "^3.7.6",
+    "less": "^3.8.1",
+    "stylus": "^0.54.5",
     "vue": "^2.5.2",
+    "vue-atom-canvas": "^1.0.0",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
     "vuex-persistedstate": "^2.5.4"
